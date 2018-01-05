@@ -9,23 +9,23 @@
 import Foundation
 import Alamofire
 
-enum MemsEndpoint: Endpoint {
-    case memsList
-    case mems(mems: Mems)
+enum MemesEndpoint: Endpoint {
+    case memesList
+    case memes(memes: Mems)
 }
 
 // MARK: - Endpoint
-extension MemsEndpoint {
+extension MemesEndpoint {
     var method: HTTPMethod {
         return .get
     }
     
     var path: String {
         switch self {
-        case .memsList:
-            return "https://api.imgflip.com/"
-        case .mems(let mems):
-            return mems.url
+        case .memesList:
+            return "https://api.imgflip.com/get_memes"
+        case .memes(let mem):
+            return mem.url
         }
     }
     

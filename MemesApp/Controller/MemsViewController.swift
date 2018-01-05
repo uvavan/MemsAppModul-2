@@ -11,29 +11,42 @@ import UIKit
 //private let reuseIdentifier = "Cell"
 
 class MemsViewController: UICollectionViewController {
-
+    
+    private var memsList: [Mems] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Register cell classes
         collectionView?.register(MemCollectionViewCell.self)
+        DataManager.instance.loadMemsList()
     }
-
-    // MARK: UICollectionViewDataSource
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadMemOfMemsList), name: .MemsListLoaded, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func loadMemOfMemsList() {
+        memsList = DataManager.instance.memsList
+        collectionView?.reloadData()
+    }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 2
+        return memsList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MemCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        
-        // Configure the cell
-    
+        let mem = memsList[indexPath.row]
+        cell.update(name: mem.name)
         return cell
     }
 

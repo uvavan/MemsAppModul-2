@@ -18,11 +18,12 @@
 		845E3A401FFE55B500E980D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A3F1FFE55B500E980D9 /* DataManager.swift */; };
 		845E3A451FFE5AC100E980D9 /* NetworkServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A441FFE5AC100E980D9 /* NetworkServise.swift */; };
 		845E3A481FFE5B0A00E980D9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A471FFE5B0A00E980D9 /* Endpoint.swift */; };
-		845E3A4A1FFE5B4B00E980D9 /* MemsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A491FFE5B4B00E980D9 /* MemsEndpoint.swift */; };
+		845E3A4A1FFE5B4B00E980D9 /* MemesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A491FFE5B4B00E980D9 /* MemesEndpoint.swift */; };
 		8464033F1FFB982D004B381E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464033E1FFB982D004B381E /* AppDelegate.swift */; };
 		846403441FFB982D004B381E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846403421FFB982D004B381E /* Main.storyboard */; };
 		846403461FFB982D004B381E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846403451FFB982D004B381E /* Assets.xcassets */; };
 		846403491FFB982D004B381E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846403471FFB982D004B381E /* LaunchScreen.storyboard */; };
+		84A66D051FFF758300F79590 /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A66D041FFF758300F79590 /* Notification+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +37,14 @@
 		845E3A3F1FFE55B500E980D9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		845E3A441FFE5AC100E980D9 /* NetworkServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServise.swift; sourceTree = "<group>"; };
 		845E3A471FFE5B0A00E980D9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = MemesApp/Model/Network/Endpoint.swift; sourceTree = SOURCE_ROOT; };
-		845E3A491FFE5B4B00E980D9 /* MemsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemsEndpoint.swift; sourceTree = "<group>"; };
+		845E3A491FFE5B4B00E980D9 /* MemesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesEndpoint.swift; sourceTree = "<group>"; };
 		8464033B1FFB982D004B381E /* MemesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8464033E1FFB982D004B381E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846403431FFB982D004B381E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846403451FFB982D004B381E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846403481FFB982D004B381E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8464034A1FFB982D004B381E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A66D041FFF758300F79590 /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
 		8F23375613684B3DAEFBFBEF /* Pods_MemesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8221A2B4587D8E9A8285207 /* Pods-MemesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemesApp/Pods-MemesApp.release.xcconfig"; sourceTree = "<group>"; };
 		FCC959DFD28344AF498BCE61 /* Pods-MemesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemesApp/Pods-MemesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				845E3A3B1FFE1DEE00E980D9 /* UICollectionView+Extension.swift */,
+				84A66D041FFF758300F79590 /* Notification+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				845E3A471FFE5B0A00E980D9 /* Endpoint.swift */,
-				845E3A491FFE5B4B00E980D9 /* MemsEndpoint.swift */,
+				845E3A491FFE5B4B00E980D9 /* MemesEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -343,9 +346,10 @@
 				845E3A481FFE5B0A00E980D9 /* Endpoint.swift in Sources */,
 				845E3A391FFE18D900E980D9 /* ReusableView.swift in Sources */,
 				845E3A301FFE166D00E980D9 /* MemsViewController.swift in Sources */,
-				845E3A4A1FFE5B4B00E980D9 /* MemsEndpoint.swift in Sources */,
+				845E3A4A1FFE5B4B00E980D9 /* MemesEndpoint.swift in Sources */,
 				845E3A3E1FFE372300E980D9 /* MemData.swift in Sources */,
 				8464033F1FFB982D004B381E /* AppDelegate.swift in Sources */,
+				84A66D051FFF758300F79590 /* Notification+Extensions.swift in Sources */,
 				845E3A331FFE171A00E980D9 /* MemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

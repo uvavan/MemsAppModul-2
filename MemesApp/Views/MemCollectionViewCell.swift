@@ -18,7 +18,7 @@ class MemCollectionViewCell: UICollectionViewCell, NibLoadableView, ReusableView
         // Initialization code
     }
     
-    func update(name: String, image: UIImage) {
+    func update(name: String, image: UIImage? = nil) {
         memImage.image = image
         nameMemsLabel.text = name
     }
