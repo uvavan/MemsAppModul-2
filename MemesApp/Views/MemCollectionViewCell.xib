@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MemCollectionViewCell" customModule="MemesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="373" height="185"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r54-On-C7y">
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="145"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-eJ-WuM">
+                        <rect key="frame" x="0.0" y="145" width="373" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="UHu-G2-X0J"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dzf-H6-R6A">
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="185"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="54K-OB-qD3">
+                        <rect key="frame" x="168" y="74" width="37" height="37"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="54K-OB-qD3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1Lt-ci-oWO"/>
+                <constraint firstItem="Dzf-H6-R6A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4lq-e0-k37"/>
+                <constraint firstItem="54K-OB-qD3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="6Zd-f2-AMX"/>
+                <constraint firstItem="Dzf-H6-R6A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9MR-Wn-zj7"/>
+                <constraint firstAttribute="trailing" secondItem="ccH-eJ-WuM" secondAttribute="trailing" id="Ift-9O-9ve"/>
+                <constraint firstAttribute="bottom" secondItem="ccH-eJ-WuM" secondAttribute="bottom" id="Pip-7F-mr1"/>
+                <constraint firstItem="r54-On-C7y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SG3-4E-QH3"/>
+                <constraint firstAttribute="trailing" secondItem="Dzf-H6-R6A" secondAttribute="trailing" id="UuE-eJ-8b9"/>
+                <constraint firstItem="ccH-eJ-WuM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZUe-fg-MmU"/>
+                <constraint firstAttribute="trailing" secondItem="r54-On-C7y" secondAttribute="trailing" id="bbc-2v-9Mq"/>
+                <constraint firstItem="ccH-eJ-WuM" firstAttribute="top" secondItem="r54-On-C7y" secondAttribute="bottom" id="kmx-Rk-YGX"/>
+                <constraint firstItem="r54-On-C7y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pbA-jk-25V"/>
+                <constraint firstAttribute="bottom" secondItem="Dzf-H6-R6A" secondAttribute="bottom" id="v95-NQ-pk1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="373" height="185"/>
+            <connections>
+                <outlet property="memImage" destination="r54-On-C7y" id="sFu-eq-wWj"/>
+                <outlet property="nameMemsLabel" destination="ccH-eJ-WuM" id="3Nw-qw-hGf"/>
+            </connections>
+            <point key="canvasLocation" x="186.5" y="119.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
