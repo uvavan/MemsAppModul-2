@@ -6,15 +6,20 @@
 //  Copyright © 2018 Bioprom. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftyJSON
 
 final class DataManager {
     static let instance = DataManager()
     
     private(set) var memsList: [Mems] = []
+   // private var memesImage: [String: UIImage] = [:]
     
     func loadMemsList() {
+        guard memsList.isEmpty else {
+            postMainQueueNotification(withName: .MemsListLoaded)
+            return
+        }
         NetworkService.request(endpoint: MemesEndpoint.memesList) { [weak self] response in
             guard let value = response.value else {
                 // TODO: add notification error
@@ -37,6 +42,20 @@ final class DataManager {
     private func postMainQueueNotification(withName name: Notification.Name, userInfo: [AnyHashable: Any]? = nil ) {
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
+        }
+    }
+    
+    func loadMemImageofURL(_ mem: Mems, completionHandler: @escaping ((UIImage?) -> Void)) {
+        let imageStringUrl = mem.url
+        guard let url = URL(string: imageStringUrl) else { return }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
+                return
+            }
+            let image = UIImage (data: imageData)
+            DispatchQueue.main.async { [image] in
+                completionHandler(image)
+            }
         }
     }
     

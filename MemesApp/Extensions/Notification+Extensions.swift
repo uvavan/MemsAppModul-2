@@ -15,4 +15,9 @@ extension Notification.Name {
     
     static let MemLoaded = Notification.Name("MemLoaded")
     static let DidFailLoadMem = Notification.Name("DidFailLoadMem")
+    
+    static let AddFavoritesMemes = Notification.Name("AddFavoritesMemes")
+    static let DeleteFavoritesMemes = Notification.Name("DeleteFavoritesMemes")
+    
+    static let NeedUpdateCell = Notification.Name("NeedUpdateCell")
 }
