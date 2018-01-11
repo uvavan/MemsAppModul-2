@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+import KeychainSwift
 
 class MemesScrinViewController: UICollectionViewController {
     
@@ -49,6 +50,8 @@ class MemesScrinViewController: UICollectionViewController {
     }
     
     @IBAction private func logoutPressed(_ sender: Any) {
+        let keychain = KeychainSwift()
+        keychain.delete(KeyNames.LoginName)
         dismiss(animated: true, completion: nil)
     }
 

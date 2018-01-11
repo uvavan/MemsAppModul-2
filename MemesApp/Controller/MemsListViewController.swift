@@ -52,10 +52,6 @@ extension MemsListViewController {
         let mem = DataManager.instance.memsList[indexPath.row]
         cell.updateName(mem.name)
         cell.uupdateImage(mem)
-//        DataManager.instance.loadMemImageofURL(mem) { (image) in
-//            cell.updateImage(image)
-//            cell.setNeedsLayout()
-//        }
         return cell
     }
     

@@ -26,6 +26,8 @@
 		846403441FFB982D004B381E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846403421FFB982D004B381E /* Main.storyboard */; };
 		846403461FFB982D004B381E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846403451FFB982D004B381E /* Assets.xcassets */; };
 		846403491FFB982D004B381E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846403471FFB982D004B381E /* LaunchScreen.storyboard */; };
+		846CD922200749720006B0BC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CD921200749720006B0BC /* LoginViewController.swift */; };
+		846CD924200775100006B0BC /* KeyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CD923200775100006B0BC /* KeyNames.swift */; };
 		848D4CD41FFFAFD9002F1CF4 /* PKHUD+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D4CD31FFFAFD9002F1CF4 /* PKHUD+Extensions.swift */; };
 		8497C8472005724900E4250F /* UserInfoNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497C8462005724900E4250F /* UserInfoNames.swift */; };
 		84A66D051FFF758300F79590 /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A66D041FFF758300F79590 /* Notification+Extensions.swift */; };
@@ -52,6 +54,8 @@
 		846403451FFB982D004B381E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846403481FFB982D004B381E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8464034A1FFB982D004B381E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846CD921200749720006B0BC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		846CD923200775100006B0BC /* KeyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyNames.swift; sourceTree = "<group>"; };
 		848D4CD31FFFAFD9002F1CF4 /* PKHUD+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKHUD+Extensions.swift"; sourceTree = "<group>"; };
 		8497C8462005724900E4250F /* UserInfoNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoNames.swift; sourceTree = "<group>"; };
 		84A66D041FFF758300F79590 /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				845E3A2F1FFE166D00E980D9 /* MemsListViewController.swift */,
 				843ADC1A2004CAEB00909762 /* MemesScrinViewController.swift */,
 				843081AC2005088C007CAF5C /* MemeDetailsViewController.swift */,
+				846CD921200749720006B0BC /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				8464034A1FFB982D004B381E /* Info.plist */,
 				843081AE2005112E007CAF5C /* IdentifierName.swift */,
 				8497C8462005724900E4250F /* UserInfoNames.swift */,
+				846CD923200775100006B0BC /* KeyNames.swift */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -289,12 +295,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MemesApp/Pods-MemesApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -356,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846CD922200749720006B0BC /* LoginViewController.swift in Sources */,
 				845E3A451FFE5AC100E980D9 /* NetworkServise.swift in Sources */,
 				843081AD2005088C007CAF5C /* MemeDetailsViewController.swift in Sources */,
 				845E3A3C1FFE1DEE00E980D9 /* UICollectionView+Extension.swift in Sources */,
@@ -371,6 +380,7 @@
 				848D4CD41FFFAFD9002F1CF4 /* PKHUD+Extensions.swift in Sources */,
 				8464033F1FFB982D004B381E /* AppDelegate.swift in Sources */,
 				84A66D051FFF758300F79590 /* Notification+Extensions.swift in Sources */,
+				846CD924200775100006B0BC /* KeyNames.swift in Sources */,
 				843ADC1B2004CAEB00909762 /* MemesScrinViewController.swift in Sources */,
 				845E3A331FFE171A00E980D9 /* MemCollectionViewCell.swift in Sources */,
 			);

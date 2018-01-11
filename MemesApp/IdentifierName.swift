@@ -10,4 +10,5 @@ import Foundation
 
 enum IdentifierName {
     static let ShowDetails = "ShowDetails"
+    static let ShowMemeScrin = "ShowMemeScrin"
 }

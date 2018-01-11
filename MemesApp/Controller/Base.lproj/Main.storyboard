@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-164" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="dDO-BX-1Co">
             <objects>
-                <viewController id="jW3-h7-7it" sceneMemberID="viewController">
+                <viewController id="jW3-h7-7it" customClass="LoginViewController" customModule="MemesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MqV-qz-mZY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,7 +158,8 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="t6J-Go-mbl" kind="show" id="h1l-CX-PBM"/>
+                                    <action selector="ibStartButtonPush:" destination="jW3-h7-7it" eventType="touchUpInside" id="R3l-Hl-qkT"/>
+                                    <segue destination="t6J-Go-mbl" kind="show" identifier="ShowMemeScrin" id="h1l-CX-PBM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login e-mail:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCP-sx-oPp">
@@ -183,6 +184,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5lg-UU-PJp"/>
                     </view>
+                    <connections>
+                        <outlet property="ibLoginTextField" destination="Rdh-RY-yE5" id="Cct-cJ-Dbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kW-tL-F1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
