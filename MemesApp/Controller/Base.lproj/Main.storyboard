@@ -159,7 +159,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ibStartButtonPush:" destination="jW3-h7-7it" eventType="touchUpInside" id="R3l-Hl-qkT"/>
-                                    <segue destination="t6J-Go-mbl" kind="show" identifier="ShowMemeScrin" id="h1l-CX-PBM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login e-mail:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCP-sx-oPp">
@@ -186,6 +185,7 @@
                     </view>
                     <connections>
                         <outlet property="ibLoginTextField" destination="Rdh-RY-yE5" id="Cct-cJ-Dbj"/>
+                        <segue destination="t6J-Go-mbl" kind="show" identifier="ShowMemeScrin" id="HJb-N3-35l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kW-tL-F1M" userLabel="First Responder" sceneMemberID="firstResponder"/>

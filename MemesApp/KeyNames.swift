@@ -10,5 +10,5 @@ import Foundation
 
 enum KeyNames {
     static let LoginName = "LoginName"
+    static let LoginList = "LoginList"
 }
-
