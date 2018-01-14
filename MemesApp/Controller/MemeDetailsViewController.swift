@@ -25,9 +25,11 @@ class MemeDetailsViewController: UIViewController {
         ibTitleLabel.text = meme.name
         ibLoadActivity.startAnimating()
         DataManager.instance.loadMemImageofURL(meme) { [weak self] (image) in
-            self?.ibMemeImage.image = image
-            self?.ibLoadActivity.stopAnimating()
-            self?.ibLoadActivity.isHidden = true
+            DispatchQueue.main.async {
+                self?.ibMemeImage.image = image
+                self?.ibLoadActivity.stopAnimating()
+                self?.ibLoadActivity.isHidden = true
+            }
         }
     }
     
@@ -36,17 +38,6 @@ class MemeDetailsViewController: UIViewController {
             NotificationCenter.default.post(name: .DeleteFavoritesMemes, object: nil, userInfo: [UserInfoNames.userInfoMeme: meme])
         }
         navigationController?.popViewController(animated: true)
-    }
-    
-    private func alertShow(title: String, text: String, currectAnswer: Bool) {
-        let alertVC = UIAlertController(title: title, message: text, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
-            if currectAnswer {
-                self?.navigationController?.popViewController(animated: true)
-            }
-        }
-        alertVC.addAction(okAction)
-        self.present(alertVC, animated: true, completion: nil)
     }
     
 }

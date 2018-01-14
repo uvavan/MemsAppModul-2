@@ -22,13 +22,13 @@ final class DataManager {
         }
         NetworkService.request(endpoint: MemesEndpoint.memesList) { [weak self] response in
             guard let value = response.value else {
-                // TODO: add notification error
+                self?.postMainQueueNotification(withName: .DidFailLoadMemsList)
                 return
             }
             let json = JSON(value)
             self?.memsList = []
             guard let jsonArrayMems = json["data"]["memes"].array else {
-                // TODO: add notification error
+                self?.postMainQueueNotification(withName: .DidFailLoadMemsList)
                 return
             }
             for item in jsonArrayMems {
@@ -53,10 +53,8 @@ final class DataManager {
                 return
             }
             let image = UIImage (data: imageData)
-            DispatchQueue.main.async { [image] in
-                completionHandler(image)
-            }
+            completionHandler(image)
         }
     }
-    
+ 
 }

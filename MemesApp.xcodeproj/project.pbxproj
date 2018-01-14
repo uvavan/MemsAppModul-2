@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		070C1EA83AAD5491B3D4F2CA /* Pods_MemesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F23375613684B3DAEFBFBEF /* Pods_MemesApp.framework */; };
+		8420FECC200BE53C001F8FF0 /* UserFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420FECB200BE53C001F8FF0 /* UserFileManager.swift */; };
+		8420FECE200BF1AE001F8FF0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420FECD200BF1AE001F8FF0 /* UIViewController+Extension.swift */; };
 		843081AD2005088C007CAF5C /* MemeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843081AC2005088C007CAF5C /* MemeDetailsViewController.swift */; };
 		843081AF2005112E007CAF5C /* IdentifierName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843081AE2005112E007CAF5C /* IdentifierName.swift */; };
 		843ADC1B2004CAEB00909762 /* MemesScrinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843ADC1A2004CAEB00909762 /* MemesScrinViewController.swift */; };
@@ -22,6 +24,7 @@
 		845E3A451FFE5AC100E980D9 /* NetworkServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A441FFE5AC100E980D9 /* NetworkServise.swift */; };
 		845E3A481FFE5B0A00E980D9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A471FFE5B0A00E980D9 /* Endpoint.swift */; };
 		845E3A4A1FFE5B4B00E980D9 /* MemesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3A491FFE5B4B00E980D9 /* MemesEndpoint.swift */; };
+		845FFBBF200BC88C00E72DF9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFBBE200BC88C00E72DF9 /* Utils.swift */; };
 		8464033F1FFB982D004B381E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464033E1FFB982D004B381E /* AppDelegate.swift */; };
 		846403441FFB982D004B381E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846403421FFB982D004B381E /* Main.storyboard */; };
 		846403461FFB982D004B381E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846403451FFB982D004B381E /* Assets.xcassets */; };
@@ -34,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8420FECB200BE53C001F8FF0 /* UserFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileManager.swift; sourceTree = "<group>"; };
+		8420FECD200BF1AE001F8FF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		843081AC2005088C007CAF5C /* MemeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailsViewController.swift; sourceTree = "<group>"; };
 		843081AE2005112E007CAF5C /* IdentifierName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierName.swift; sourceTree = "<group>"; };
 		843ADC1A2004CAEB00909762 /* MemesScrinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesScrinViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		845E3A441FFE5AC100E980D9 /* NetworkServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServise.swift; sourceTree = "<group>"; };
 		845E3A471FFE5B0A00E980D9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = MemesApp/Model/Network/Endpoint.swift; sourceTree = SOURCE_ROOT; };
 		845E3A491FFE5B4B00E980D9 /* MemesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesEndpoint.swift; sourceTree = "<group>"; };
+		845FFBBE200BC88C00E72DF9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8464033B1FFB982D004B381E /* MemesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8464033E1FFB982D004B381E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846403431FFB982D004B381E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				845E3A3F1FFE55B500E980D9 /* DataManager.swift */,
+				8420FECB200BE53C001F8FF0 /* UserFileManager.swift */,
 				845E3A431FFE5A6100E980D9 /* Network */,
 				845E3A421FFE5A5600E980D9 /* Entities */,
 			);
@@ -139,6 +146,7 @@
 				845E3A3B1FFE1DEE00E980D9 /* UICollectionView+Extension.swift */,
 				84A66D041FFF758300F79590 /* Notification+Extensions.swift */,
 				848D4CD31FFFAFD9002F1CF4 /* PKHUD+Extensions.swift */,
+				8420FECD200BF1AE001F8FF0 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,18 +177,33 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		845E3A4B1FFE5C7E00E980D9 /* Help */ = {
+		845E3A4B1FFE5C7E00E980D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				8464033E1FFB982D004B381E /* AppDelegate.swift */,
 				846403451FFB982D004B381E /* Assets.xcassets */,
 				846403471FFB982D004B381E /* LaunchScreen.storyboard */,
 				8464034A1FFB982D004B381E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		845FFBBC200BBB4900E72DF9 /* StringName */ = {
+			isa = PBXGroup;
+			children = (
 				843081AE2005112E007CAF5C /* IdentifierName.swift */,
 				8497C8462005724900E4250F /* UserInfoNames.swift */,
 				846CD923200775100006B0BC /* KeyNames.swift */,
 			);
-			name = Help;
+			path = StringName;
+			sourceTree = "<group>";
+		};
+		845FFBBD200BC85E00E72DF9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				845FFBBE200BC88C00E72DF9 /* Utils.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		846403321FFB982C004B381E = {
@@ -204,7 +227,9 @@
 		8464033D1FFB982D004B381E /* MemesApp */ = {
 			isa = PBXGroup;
 			children = (
-				845E3A4B1FFE5C7E00E980D9 /* Help */,
+				845E3A4B1FFE5C7E00E980D9 /* Supporting Files */,
+				845FFBBD200BC85E00E72DF9 /* Helpers */,
+				845FFBBC200BBB4900E72DF9 /* StringName */,
 				845E3A3A1FFE1DB600E980D9 /* Extensions */,
 				845E3A351FFE187D00E980D9 /* Protocol */,
 				845E3A2E1FFE141500E980D9 /* Views */,
@@ -328,14 +353,14 @@
 		};
 		8445F0CF1FFBD14C0039C5B0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
@@ -372,13 +397,16 @@
 				845E3A401FFE55B500E980D9 /* DataManager.swift in Sources */,
 				845E3A371FFE18BF00E980D9 /* NibLoadableView.swift in Sources */,
 				845E3A481FFE5B0A00E980D9 /* Endpoint.swift in Sources */,
+				8420FECC200BE53C001F8FF0 /* UserFileManager.swift in Sources */,
 				845E3A391FFE18D900E980D9 /* ReusableView.swift in Sources */,
 				845E3A301FFE166D00E980D9 /* MemsListViewController.swift in Sources */,
 				843081AF2005112E007CAF5C /* IdentifierName.swift in Sources */,
+				8420FECE200BF1AE001F8FF0 /* UIViewController+Extension.swift in Sources */,
 				845E3A4A1FFE5B4B00E980D9 /* MemesEndpoint.swift in Sources */,
 				845E3A3E1FFE372300E980D9 /* MemData.swift in Sources */,
 				848D4CD41FFFAFD9002F1CF4 /* PKHUD+Extensions.swift in Sources */,
 				8464033F1FFB982D004B381E /* AppDelegate.swift in Sources */,
+				845FFBBF200BC88C00E72DF9 /* Utils.swift in Sources */,
 				84A66D051FFF758300F79590 /* Notification+Extensions.swift in Sources */,
 				846CD924200775100006B0BC /* KeyNames.swift in Sources */,
 				843ADC1B2004CAEB00909762 /* MemesScrinViewController.swift in Sources */,

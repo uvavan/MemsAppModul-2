@@ -11,8 +11,6 @@ import PKHUD
 
 class MemsListViewController: UICollectionViewController {
     
-    //private var memsList: [Mems] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.register(MemCollectionViewCell.self)
@@ -22,12 +20,21 @@ class MemsListViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(loadMemOfMemsList), name: .MemsListLoaded, object: nil)
+        addObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadMemOfMemsList), name: .MemsListLoaded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(failLoadMemesList), name: .DidFailLoadMemsList, object: nil)
+    }
+    
+    @objc private func failLoadMemesList() {
+        alertShow(title: "Ошибка!", text: "Не возможно загрузить контент.", currectAnswer: true)
     }
     
     @objc private func loadMemOfMemsList() {
@@ -51,7 +58,7 @@ extension MemsListViewController {
         let cell: MemCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         let mem = DataManager.instance.memsList[indexPath.row]
         cell.updateName(mem.name)
-        cell.uupdateImage(mem)
+        cell.updateImage(mem)
         return cell
     }
     
@@ -60,7 +67,6 @@ extension MemsListViewController {
         NotificationCenter.default.post(name: .AddFavoritesMemes, object: nil, userInfo: [UserInfoNames.userInfoMeme: mame])
         navigationController?.popViewController(animated: true)
     }
-
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

@@ -19,16 +19,23 @@ class MemCollectionViewCell: UICollectionViewCell, NibLoadableView, ReusableView
         super.awakeFromNib()
     }
     
-    func uupdateImage(_ meme: Mems) {
+    func updateImage(_ meme: Mems, login: String? = nil) {
+        let clouser: ((UIImage?) -> Void) = { [weak self] (image) in
+            DispatchQueue.main.async {
+                guard self!.meme?.id == meme.id else { return }
+                self?.memImage.image = image
+                self?.ibIndicatorLoad.stopAnimating()
+                self?.ibIndicatorLoad.isHidden = true
+            }
+        }
         self.meme = meme
         memImage.image = #imageLiteral(resourceName: "image2@")
         ibIndicatorLoad.startAnimating()
         ibIndicatorLoad.isHidden = false
-        DataManager.instance.loadMemImageofURL(meme) { [weak self] (image) in
-            guard self!.meme?.id == meme.id else { return }
-            self?.memImage.image = image
-            self?.ibIndicatorLoad.stopAnimating()
-            self?.ibIndicatorLoad.isHidden = true
+        if let login = login {
+            UserFileManager.loadImage(meme: meme, user: login, completionHandler: clouser)
+        } else {
+            DataManager.instance.loadMemImageofURL(meme, completionHandler: clouser)
         }
     }
     

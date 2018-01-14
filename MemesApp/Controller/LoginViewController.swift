@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import KeychainSwift
 
 class LoginViewController: UIViewController {
     
     @IBOutlet private weak var ibLoginTextField: UITextField!
-    
-    private let keychain = KeychainSwift()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ibLoginTextField.text = nil
-        if keychain.get(KeyNames.LoginName) != nil {
+        if (UserFileManager.login != nil) {
             performSegue(withIdentifier: IdentifierName.ShowMemeScrin, sender: nil)
         }
     }
@@ -38,16 +35,21 @@ class LoginViewController: UIViewController {
         hideKeyboard()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == IdentifierName.ShowMemeScrin, ((segue.destination as? MemesScrinViewController) != nil) else { return }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard segue.identifier == IdentifierName.ShowMemeScrin else { return }
+//    }
     
     @IBAction func ibStartButtonPush(_ sender: Any) {
         guard let login = ibLoginTextField.text else {return}
         guard !login.isEmpty else {return}
         guard login.isValidEmail else {return}
-        keychain.set(login, forKey: KeyNames.LoginName)
-        performSegue(withIdentifier: IdentifierName.ShowMemeScrin, sender: nil)
+        UserFileManager.setLogin(login)
+        let path = Utils.pathDirectoryForUser(forUser: login)
+        if !FileManager.default.changeCurrentDirectoryPath(path.path) {
+            try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: true)
+            FileManager.default.changeCurrentDirectoryPath(path.path)
+        }
+        performSegue(withIdentifier: IdentifierName.ShowMemeScrin, sender: login)
     }
     
     private func hideKeyboard() {
@@ -56,6 +58,7 @@ class LoginViewController: UIViewController {
     
 }
 
+// MARK: - String valid e-mail
 extension String {
     var isValidEmail: Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

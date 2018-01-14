@@ -11,35 +11,54 @@ import PKHUD
 import KeychainSwift
 
 class MemesScrinViewController: UICollectionViewController {
-    
-    private  var favoritesMemes: [Mems] = []
+
+    private var favoritesMemes: [Mems] = []
+    private var login = ""
+   // private var user = UserMemesApp(login:)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.register(MemCollectionViewCell.self)
-        //HUD.showProgress()
+        HUD.showProgress()
         addNotification()
+        loadUserInfo()
     }
     
-    func addNotification () {
+    private func loadUserInfo() {
+        guard let login = UserFileManager.login else {return}
+        self.login = login
+        guard let memes = UserFileManager.loadMemesListFromUserDefaults(login: login) else {
+            HUD.hide()
+            return
+        }
+        favoritesMemes = memes
+        HUD.hide()
+        collectionView?.reloadData()
+    }
+    
+    private func addNotification () {
         NotificationCenter.default.addObserver(self, selector: #selector(addFavoritesMeme(_ :)), name: .AddFavoritesMemes, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteFavoritesMeme(_:)), name: .DeleteFavoritesMemes, object: nil)
     }
     
-    @objc func addFavoritesMeme(_ notification: NSNotification) {
+    @objc private func addFavoritesMeme(_ notification: NSNotification) {
         guard let meme = notification.userInfo![UserInfoNames.userInfoMeme] as? Mems else {return}
         guard favoritesMemes.filter({ [meme] in
             return $0.id == meme.id
         }).isEmpty else {return}
         favoritesMemes.append(Mems(id: meme.id, name: meme.name, url: meme.url))
+        UserFileManager.saveImage(meme: meme, user: login)
+        UserFileManager.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
         collectionView?.reloadData()
     }
     
-    @objc func deleteFavoritesMeme(_ notification: NSNotification) {
+    @objc private func deleteFavoritesMeme(_ notification: NSNotification) {
         guard let meme = notification.userInfo![UserInfoNames.userInfoMeme] as? Mems else {return}
         for (index, item) in favoritesMemes.enumerated() where item.id == meme.id {
             favoritesMemes.remove(at: index)
         }
+        UserFileManager.deleteImage(meme: meme, login: login)
+        UserFileManager.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
         collectionView?.reloadData()
     }
     
@@ -71,7 +90,7 @@ extension MemesScrinViewController {
         let cell: MemCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         let mem = favoritesMemes[indexPath.item]
         cell.updateName(mem.name)
-        cell.uupdateImage(mem)
+        cell.updateImage(mem, login: login)
         return cell
     }
     
