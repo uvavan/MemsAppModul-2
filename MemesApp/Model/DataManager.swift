@@ -11,6 +11,7 @@ import SwiftyJSON
 
 final class DataManager {
     static let instance = DataManager()
+    private init() { }
     
     private(set) var memsList: [Mems] = []
    // private var memesImage: [String: UIImage] = [:]

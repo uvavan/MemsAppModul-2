@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ibLoginTextField.text = nil
-        if (UserFileManager.login != nil) {
+        if (UserFileManager.instance.login != nil) {
             performSegue(withIdentifier: IdentifierName.ShowMemeScrin, sender: nil)
         }
     }
@@ -41,9 +41,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func ibStartButtonPush(_ sender: Any) {
         guard let login = ibLoginTextField.text else {return}
-        guard !login.isEmpty else {return}
-        guard login.isValidEmail else {return}
-        UserFileManager.setLogin(login)
+        guard !login.isEmpty else {
+            alertShow(title: "Ошибка!", text: "Полле ввода e-mail пустое", currectAnswer: true)
+            return
+        }
+        guard login.isValidEmail else {
+            alertShow(title: "Ошибка!", text: "Не корректный e-mail", currectAnswer: true)
+            return
+        }
+        UserFileManager.instance.setLogin(login)
         let path = Utils.pathDirectoryForUser(forUser: login)
         if !FileManager.default.changeCurrentDirectoryPath(path.path) {
             try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: true)

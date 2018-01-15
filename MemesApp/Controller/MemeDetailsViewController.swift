@@ -24,7 +24,7 @@ class MemeDetailsViewController: UIViewController {
         }
         ibTitleLabel.text = meme.name
         ibLoadActivity.startAnimating()
-        UserFileManager.loadImage(meme: meme, user: UserFileManager.login ?? "") { [weak self] (image) in
+        UserFileManager.instance.loadImage(meme: meme, user: UserFileManager.instance.login ?? "") { [weak self] (image) in
             DispatchQueue.main.async {
                 self?.ibMemeImage.image = image
                 self?.ibLoadActivity.stopAnimating()
@@ -35,7 +35,7 @@ class MemeDetailsViewController: UIViewController {
     
     @IBAction func deleteButtonPush(_ sender: Any) {
         if let meme = meme {
-            NotificationCenter.default.post(name: .DeleteFavoritesMemes, object: nil, userInfo: [UserInfoNames.userInfoMeme: meme])
+            UserFileManager.instance.deleteImage(meme: meme, login: UserFileManager.instance.login ?? "")
         }
         navigationController?.popViewController(animated: true)
     }

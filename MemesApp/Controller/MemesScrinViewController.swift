@@ -25,9 +25,9 @@ class MemesScrinViewController: UICollectionViewController {
     }
     
     private func loadUserInfo() {
-        guard let login = UserFileManager.login else {return}
+        guard let login = UserFileManager.instance.login else {return}
         self.login = login
-        guard let memes = UserFileManager.loadMemesListFromUserDefaults(login: login) else {
+        guard let memes = UserFileManager.instance.loadMemesListFromUserDefaults(login: login) else {
             HUD.hide()
             return
         }
@@ -47,8 +47,8 @@ class MemesScrinViewController: UICollectionViewController {
             return $0.id == meme.id
         }).isEmpty else {return}
         favoritesMemes.append(Mems(id: meme.id, name: meme.name, url: meme.url))
-        UserFileManager.saveImage(meme: meme, user: login)
-        UserFileManager.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
+        UserFileManager.instance.saveImage(meme: meme, user: login)
+        UserFileManager.instance.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
         collectionView?.reloadData()
     }
     
@@ -57,8 +57,7 @@ class MemesScrinViewController: UICollectionViewController {
         for (index, item) in favoritesMemes.enumerated() where item.id == meme.id {
             favoritesMemes.remove(at: index)
         }
-        UserFileManager.deleteImage(meme: meme, login: login)
-        UserFileManager.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
+        UserFileManager.instance.saveMemesListToUserDefaults(memes: favoritesMemes, login: login)
         collectionView?.reloadData()
     }
     

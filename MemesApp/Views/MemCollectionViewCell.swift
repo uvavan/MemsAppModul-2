@@ -33,7 +33,7 @@ class MemCollectionViewCell: UICollectionViewCell, NibLoadableView, ReusableView
         ibIndicatorLoad.startAnimating()
         ibIndicatorLoad.isHidden = false
         if let login = login {
-            UserFileManager.loadImage(meme: meme, user: login, completionHandler: clouser)
+            UserFileManager.instance.loadImage(meme: meme, user: login, completionHandler: clouser)
         } else {
             DataManager.instance.loadMemImageofURL(meme, completionHandler: clouser)
         }

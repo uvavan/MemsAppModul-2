@@ -9,19 +9,21 @@
 import UIKit
 import KeychainSwift
 
-struct UserFileManager {
+final class UserFileManager {
+    static let instance = UserFileManager()
+    private init() { }
     
-    static var login: String? {
+    var login: String? {
         let keychain = KeychainSwift()
         return keychain.get(KeyNames.LoginName)
     }
     
-    static func setLogin(_ login: String) {
+    func setLogin(_ login: String) {
         let keychain = KeychainSwift()
         keychain.set(login, forKey: KeyNames.LoginName)
     }
     
-    static func saveImage(meme: Mems, user login: String) {
+    func saveImage(meme: Mems, user login: String) {
         let imagePath = Utils.pathInDocument(withComponent: meme.name, forUsser: login).path
         DataManager.instance.loadMemImageofURL(meme) { (image) in
             guard let image = image else {return}
@@ -32,7 +34,7 @@ struct UserFileManager {
         }
     }
     
-    static func loadImage(meme: Mems, user login: String, completionHandler: @escaping ((UIImage?) -> Void)) {
+    func loadImage(meme: Mems, user login: String, completionHandler: @escaping ((UIImage?) -> Void)) {
         let imagePath = Utils.pathInDocument(withComponent: meme.name, forUsser: login).path
         if FileManager.default.fileExists(atPath: imagePath) {
             DispatchQueue.global().async { [imagePath] in
@@ -44,17 +46,18 @@ struct UserFileManager {
         }
     }
     
-    static func deleteImage(meme: Mems, login: String) {
+    func deleteImage(meme: Mems, login: String) {
         let imagePath = Utils.pathInDocument(withComponent: meme.name, forUsser: login).path
+        NotificationCenter.default.post(name: .DeleteFavoritesMemes, object: nil, userInfo: [UserInfoNames.userInfoMeme: meme])
         guard FileManager.default.fileExists(atPath: imagePath) else {return}
         try? FileManager.default.removeItem(atPath: imagePath)
     }
     
-    static func saveMemesListToUserDefaults(memes: [Mems], login: String) {
+    func saveMemesListToUserDefaults(memes: [Mems], login: String) {
         try? UserDefaults.standard.set(PropertyListEncoder().encode(memes), forKey: login)
     }
     
-    static func loadMemesListFromUserDefaults(login: String) -> [Mems]? {
+    func loadMemesListFromUserDefaults(login: String) -> [Mems]? {
         guard let encoded = UserDefaults.standard.object(forKey: login) as? Data else {return nil}
         return try? PropertyListDecoder().decode([Mems].self, from: encoded)
     }
