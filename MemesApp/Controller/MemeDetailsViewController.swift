@@ -24,7 +24,7 @@ class MemeDetailsViewController: UIViewController {
         }
         ibTitleLabel.text = meme.name
         ibLoadActivity.startAnimating()
-        DataManager.instance.loadMemImageofURL(meme) { [weak self] (image) in
+        UserFileManager.loadImage(meme: meme, user: UserFileManager.login ?? "") { [weak self] (image) in
             DispatchQueue.main.async {
                 self?.ibMemeImage.image = image
                 self?.ibLoadActivity.stopAnimating()

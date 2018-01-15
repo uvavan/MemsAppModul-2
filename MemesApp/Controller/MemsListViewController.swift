@@ -34,6 +34,7 @@ class MemsListViewController: UICollectionViewController {
     }
     
     @objc private func failLoadMemesList() {
+        HUD.hide()
         alertShow(title: "Ошибка!", text: "Не возможно загрузить контент.", currectAnswer: true)
     }
     
