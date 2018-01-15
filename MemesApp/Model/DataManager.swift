@@ -6,23 +6,56 @@
 //  Copyright © 2018 Bioprom. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftyJSON
 
 final class DataManager {
     static let instance = DataManager()
+    private init() { }
     
-    private(set) var mems: [Mems] = []
+    private(set) var memsList: [Mems] = []
+   // private var memesImage: [String: UIImage] = [:]
     
     func loadMemsList() {
-        NetworkService.request(endpoint: MemsEndpoint.memsList) { [weak self] response in
+        guard memsList.isEmpty else {
+            postMainQueueNotification(withName: .MemsListLoaded)
+            return
+        }
+        NetworkService.request(endpoint: MemesEndpoint.memesList) { [weak self] response in
             guard let value = response.value else {
-                // TODO: add notification error
+                self?.postMainQueueNotification(withName: .DidFailLoadMemsList)
                 return
             }
             let json = JSON(value)
-            // TODO: add Notification ok data
+            self?.memsList = []
+            guard let jsonArrayMems = json["data"]["memes"].array else {
+                self?.postMainQueueNotification(withName: .DidFailLoadMemsList)
+                return
+            }
+            for item in jsonArrayMems {
+                guard let mem = Mems(json: item) else {continue}
+                self?.memsList.append(mem)
+            }
+            self?.postMainQueueNotification(withName: .MemsListLoaded)
         }
     }
     
+    private func postMainQueueNotification(withName name: Notification.Name, userInfo: [AnyHashable: Any]? = nil ) {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
+        }
+    }
+    
+    func loadMemImageofURL(_ mem: Mems, completionHandler: @escaping ((UIImage?) -> Void)) {
+        let imageStringUrl = mem.url
+        guard let url = URL(string: imageStringUrl) else { return }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
+                return
+            }
+            let image = UIImage (data: imageData)
+            completionHandler(image)
+        }
+    }
+ 
 }

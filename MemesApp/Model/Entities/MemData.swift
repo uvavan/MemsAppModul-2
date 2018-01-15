@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Mems {
+struct Mems: Codable {
     let id: String
     let name: String
     let url: String
